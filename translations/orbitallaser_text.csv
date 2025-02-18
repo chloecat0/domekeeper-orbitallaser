@@ -1,0 +1,17 @@
+keys,en
+upgrades.domeOL.title,Orbital Laser Dome
+upgrades.domeOL.desc,Advanced dome that interfaces with an orbital satellite equipped with a devastating laser.
+upgrades.orbitalLaser.title,Orbital Laser
+upgrades.orbitalLaser.desc,A high-powered laser equipped on an orbital satellite.
+upgrades.orbitalWidth1.title,Width 1
+upgrades.orbitalWidth1.desc,Improve the width of the laser beam.
+upgrades.orbitalWidth2.title,Width 2
+upgrades.orbitalWidth2.desc,Further improve the width of the laser beam.
+upgrades.orbitalStrength1.title,Power 1
+upgrades.orbitalStrength1.desc,Improve the power of the orbital laser.
+upgrades.orbitalStrength2.title,Power 2
+upgrades.orbitalStrength2.desc,Further improve the power of the orbital laser.
+upgrades.orbitalSpeed1.title,Speed 1
+upgrades.orbitalSpeed1.desc,The orbital laser moves faster.
+upgrades.orbitalSpeed2.title,Speed 2
+upgrades.orbitalSpeed2.desc,The orbital laser moves even faster.

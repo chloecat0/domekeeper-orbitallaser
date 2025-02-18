@@ -1,0 +1,123 @@
+domeOL:
+  type: dome
+  scenes: 
+  dome: content/dome/dome4/Dome4.tscn
+  unlockslimits: [domeOL]
+  addslots: [primary, cellar, cellar, mineshaft, domesurface, domebackside, domesupplement, activegadget]
+  primaryWeapon: orbitalLaser
+  propertyChanges: 
+    - dome.maxhealth = 1000
+    - dome.cellars = 1/h
+domeOLhealth1:
+  limit: [domeOL, hostile, domehealth]
+  cost: iron=6
+  shadowing: dome1health1
+  propertyChanges: 
+    - dome.maxhealth += 350
+    - dome.health += 350
+    - dome.healthbar += 1
+  predecessors: [domeOLsandrepair]
+domeOLhealth2:
+  cost: iron=12
+  shadowing: dome1health2
+  propertyChanges: 
+    - dome.maxhealth += 350
+    - dome.health += 350
+    - dome.healthbar += 1
+  predecessors: [domeOLhealth1]
+
+domeOLwavemeter:
+  shadowing: domewavemeter
+  limit: [hostile]
+  cost: iron=2
+  predecessors: [domeOL]
+  predecessorsAny: true
+  propertyChanges: 
+    - wavemeter.showbar = true
+domeOLwavewarner:
+  shadowing: domewavewarner
+  cost: water=1
+  predecessors: [domeOLwavemeter]
+  propertyChanges:
+    - wavemeter.warner = true
+domeOLwavepathtodome:
+  shadowing: domewavepathtodome
+  cost: water=1
+  predecessors: [domeOLwavewarner]
+  propertyChanges:
+    - wavemeter.pathtodome = true
+domeOLwavecount:
+  shadowing: domewavecount
+  cost: water=1
+  predecessors: [domeOLResourceCounters]
+  propertyChanges: 
+    - wavemeter.showcounter = true
+domeOLHealthMeter:
+  shadowing: domeHealthMeter
+  limit: [hostile]
+  cost: iron=1
+  predecessors: [domeOL]
+  predecessorsAny: true
+  scenes:
+    hud: content/hud/healthmeter/HealthMeter.tscn
+domeOLResourceCounters:
+  shadowing: domeResourceCounters
+  cost: water=1
+  predecessors: [domeOL]
+  predecessorsAny: true
+  propertyChanges: 
+    - dome.autorepair = true
+  scenes:
+    hud: content/hud/inventory/Inventory.tscn
+domeOLsandrepair:
+  shadowing: domesandrepair
+  limit: [hostile]
+  cost: sand=1
+  propertyChanges:
+    - dome.baserepair = 120
+    - dome.healthfractionrepair = 0.1
+  predecessors: [domeOLHealthMeter]
+  repeatable: true
+
+orbitalLaser:
+  type: weapon
+  limit: [hostile, primaryweapon]
+  propertyChanges:
+    - orbitalLaser.dps = 20
+    - orbitalLaser.movespeed = 0.1
+    - orbitalLaser.width = 1
+    - orbitalLaser.firedelay = 1.0
+orbitalWidth1:
+  cost: iron=6
+  propertyChanges:
+    - orbitalLaser.width += 1
+    - orbitalLaser.firedelay += 0.25
+  predecessors: [orbitalLaser]
+orbitalWidth2:
+  cost: iron=10
+  propertyChanges:
+    - orbitalLaser.width += 1
+    - orbitalLaser.firedelay += 0.5
+  predecessors: [orbitalWidth1]
+orbitalStrength1:
+  cost: iron=10
+  propertyChanges:
+    - orbitalLaser.dps += 10
+    - orbitalLaser.movespeed -= 0.1
+  predecessors: [orbitalLaser]
+orbitalStrength2:
+  cost: iron=18
+  propertyChanges:
+    - orbitalLaser.dps += 20
+    - orbitalLaser.movespeed -= 0.2
+  predecessors: [orbitalStrength1]
+orbitalSpeed1:
+  cost: water=3
+  propertyChanges:
+    - orbitalLaser.movespeed += 0.2
+  predecessors: [orbitalLaser]
+orbitalSpeed2:
+  cost: water=7
+  propertyChanges:
+    - orbitalLaser.movespeed += 0.5
+  predecessors: [orbitalSpeed1]

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dw3wclckxfad2"
+
+[deps]
+
+files=["res://mods-unpacked/chloecat-orbitallaser/translations/orbitallaser_text.en.translation"]
+
+source_file="res://mods-unpacked/chloecat-orbitallaser/translations/orbitallaser_text.csv"
+dest_files=["res://mods-unpacked/chloecat-orbitallaser/translations/orbitallaser_text.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0
